@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210628130151 extends AbstractMigration
+final class Version20210628143247 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -25,7 +25,7 @@ final class Version20210628130151 extends AbstractMigration
         $this->addSql('CREATE TABLE messaging (id INT AUTO_INCREMENT NOT NULL, sender_id INT NOT NULL, receiver_id INT NOT NULL, send_at DATETIME NOT NULL, INDEX IDX_EE15BA61F624B39D (sender_id), INDEX IDX_EE15BA61CD53EDB6 (receiver_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE messaging_content (messaging_id INT NOT NULL, content_id INT NOT NULL, INDEX IDX_D6368B895CA3C610 (messaging_id), INDEX IDX_D6368B8984A0A3ED (content_id), PRIMARY KEY(messaging_id, content_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE status (id INT AUTO_INCREMENT NOT NULL, is_online TINYINT(1) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, status_id INT DEFAULT NULL, firstname VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL, mail VARCHAR(255) NOT NULL, INDEX IDX_8D93D6496BF700BD (status_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, status_id INT DEFAULT NULL, firstname VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL, mail VARCHAR(255) NOT NULL, picture VARCHAR(255) DEFAULT NULL, INDEX IDX_8D93D6496BF700BD (status_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE content ADD CONSTRAINT FK_FEC530A961220EA6 FOREIGN KEY (creator_id) REFERENCES user (id)');
         $this->addSql('ALTER TABLE message_counter ADD CONSTRAINT FK_51AAAE74537A1329 FOREIGN KEY (message_id) REFERENCES content (id)');
         $this->addSql('ALTER TABLE message_counter ADD CONSTRAINT FK_51AAAE74F624B39D FOREIGN KEY (sender_id) REFERENCES user (id)');
