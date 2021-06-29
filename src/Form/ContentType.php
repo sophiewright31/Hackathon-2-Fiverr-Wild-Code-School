@@ -13,8 +13,6 @@ class ContentType extends AbstractType
     {
         $builder
             ->add('Message')
-            ->add('creator')
-            ->add('yes')
         ;
     }
 

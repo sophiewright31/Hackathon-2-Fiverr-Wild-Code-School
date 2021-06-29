@@ -29,7 +29,7 @@
                     <div class="frame text-white bg-primary mb-3" style="height:500px; border-radius:45px;">
                         <div class="card-body">
                             {% if app.user %}
-                                <div class="row justify-content-center">
+                                <div class="row justify-content-center mb-5">
                                     <div class="d-flex ">
                                         <img class="avatar mt-3 mb-3" src="{{ app.user.imagePicture }}"
                                              alt="avatar">
@@ -37,26 +37,19 @@
                                 </div>
                             {% endif %}
 
-                            <div class="row justify-content-center">
-                                <a href="{{ path('messaging_index', {'id': 1}) }}" class="btn btn-success btn-lg m-3" role="button"
-                                   aria-pressed="true">SELECT</a><br>
-                            </div>
-                            <div class="row justify-content-center">
-                                <a href="{{ path('content_new') }}" class="btn btn-success btn-lg m-3" role="button"
-                                   aria-pressed="true">CREATE</a><br>
-                            </div>
-                            <div class="row justify-content-center m-3">
-                                <a href="{{ path('defaultmines') }}" class="btn btn-success btn-lg" role="button"
-                                   aria-pressed="true">MINES</a><br>
+                            <div class="row justify-content-center d-flex">
+                                    <ul class="list-group overflow-auto" style="max-height: 160px;" >
+                                        {% for myInsert in myInserts %}
+                                            <li class="list-group-item bg-primary border-light">{{ myInsert.message }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                <a class="text-light" href="{{ path('default') }}">return</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
-
 
 {% endblock %}
