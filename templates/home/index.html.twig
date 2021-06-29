@@ -12,11 +12,17 @@
 			<div class="frame text-white bg-primary mb-3" style="height:500px; border-radius:45px;">
 				<div class="card-body">
 					<div class="row d-flex inline-block justify-content-end pr-2 pt-5">
-						<p class="card-text mr-3">online</p>
-						<div class="custom-control custom-switch">
-							<input type="checkbox" class="custom-control-input" id="customSwitch1">
-							<label class="custom-control-label" for="customSwitch1"></label>
-						</div>
+						{% if app.user %}
+							<div class="custom-control custom-switch">
+								<label class="custom-control-label" for="customSwitch1">Online</label>
+								<input type="checkbox" class="custom-control-input" id="customSwitch1">
+							</div>
+						{% else %}
+							<div class="custom-control custom-switch">
+								<input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
+								<label class="custom-control-label" for="customSwitch2">Offline</label>
+							</div>
+						{% endif %}
 					</div>
 				</div>
 			</div>
