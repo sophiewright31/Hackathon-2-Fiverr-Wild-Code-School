@@ -1,43 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!
-{% endblock %}
+{% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
 	<div class="container-fluid">
 		<div class="dropright d-flex float-right">
-			<button class="btn btn-primary mb-5 " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-radius:0 0 20px 20px;">
-				{% if app.user %}
-				<div class="d-flex inline-block">
-					<p>🔔</p>
-					<div class="ml-3 custom-control custom-switch">
-						<label class="custom-control-label" for="customSwitch1">Online</label>
-						<input type="checkbox" class="custom-control-input" id="customSwitch1">
-					</div>
-				</div>
-				{% else %}
-					<div class="ml-3 custom-control custom-switch">
-						<input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
-						<label class="custom-control-label" for="customSwitch2">Offline</label>
-					</div>
-				{% endif %}
-			</button>
-			<div class="dropdown-menu border-0 ml-5" aria-labelledby="dropdownMenuButton">
-				<div class="row mt-5 ml-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="frame text-white bg-primary mb-3" style="height:500px; border-radius:45px;">
-						<div class="card-body">
-						{% if app.user %}
-                        <div class="row justify-content-center">
-                            <div class="d-flex ">
-                                <img class="avatar mt-3" src="{{ app.user.imagePicture }}"
-                                     alt="avatar">
-                            </div>
-                        </div>
-                        {% endif %}
-						</div>
-					</div>
-				</div>
-			</div>
+			{% include 'components/_switch_button.html.twig' %}
+			{% include 'components/_profile_picture.html.twig' %}
 		</div>
 	</div>
 {% endblock %}
