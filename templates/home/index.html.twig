@@ -23,16 +23,26 @@
                     </div>
                 {% endif %}
             </button>
-            <div class="dropdown-menu border-0 ml-5" aria-labelledby="dropdownMenuButton">
-                <div class="row mt-5 ml-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
+            <div class="dropdown-menu border-0 bg-transparent mt-5" aria-labelledby="dropdownMenuButton">
+                <div class="row mt-5 ml-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="frame text-white bg-primary mb-3" style="height:500px; border-radius:45px;">
                         <div class="card-body">
+                            <div class="ml-3 custom-control custom-switch">
+                                {% if app.user %}
+                                    <a href="{{ path("app_logout") }}">
+                                        <img src="{{ asset('build/images/off.png') }}">
+                                    </a>
+                                {% else %}
+                                    <a href="{{ path("app_login") }}">
+                                        <img src="{{ asset('build/images/on.png') }}">
+                                    </a>
+                                {% endif %}
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                            </div>
                             {% if app.user %}
                                 <div class="row justify-content-center">
                                     <div class="d-flex ">
-                                        <img class="avatar mt-3 mb-3" src="{{ app.user.imagePicture }}"
-                                             alt="avatar">
+                                        <img class="avatar mt-3" src="{{ app.user.imagePicture }}" alt="avatar">
                                     </div>
                                 </div>
                             {% endif %}
