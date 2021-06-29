@@ -7,13 +7,18 @@
 	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
 		Launch demo modal
 	</button>
-
-	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="card text-white bg-primary mb-3 rounded" style="max-width: 18rem;">
-			<div class="card-header">Header</div>
-			<div class="card-body">
-				<h5 class="card-title">Primary card title</h5>
-				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+	<div class="container">
+		<div class="row col-3 modal fade mt-5 ml-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="frame text-white bg-primary mb-3" style="height:500px; border-radius:45px;">
+				<div class="card-body">
+					<div class="row d-flex inline-block justify-content-end pr-2 pt-5">
+						<p class="card-text mr-3">online</p>
+						<div class="custom-control custom-switch">
+							<input type="checkbox" class="custom-control-input" id="customSwitch1">
+							<label class="custom-control-label" for="customSwitch1"></label>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
