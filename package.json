@@ -20,6 +20,8 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "bootstrap": "4"
+        "bootstrap": "4",
+        "react": "^17.0.2",
+        "react-switch": "^6.0.0"
     }
 }
