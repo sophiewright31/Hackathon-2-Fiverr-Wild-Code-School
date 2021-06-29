@@ -39,6 +39,11 @@ class Content
      */
     private $Frequency;
 
+    public function __toString()
+    {
+        return $this->getMessage().' '.$this->getId();
+    }
+
     public function __construct()
     {
         $this->yes = new ArrayCollection();
