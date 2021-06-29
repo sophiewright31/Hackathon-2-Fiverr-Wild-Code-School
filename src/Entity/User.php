@@ -77,6 +77,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $status;
 
+    public function __toString(): string
+    {
+        return $this->firstname;
+    }
+
 
     public function __construct()
     {

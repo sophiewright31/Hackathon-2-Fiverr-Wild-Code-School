@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Content{% endblock %}
+
+{% block body %}
+
+    {{ include('content/_form.html.twig') }}
+
+    <a href="{{ path('default') }}">return</a>
+{% endblock %}
