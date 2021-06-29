@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Seller Dashboard{% endblock %}
+{% block title %}Hello HomeController!
+{% endblock %}
 
 {% block body %}
-
     <div class="container-fluid">
         <div class="dropright d-flex float-right">
             <button class="btn btn-primary mb-5 " type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -29,7 +29,7 @@
                     <div class="frame text-white bg-primary mb-3" style="height:500px; border-radius:45px;">
                         <div class="card-body">
                             {% if app.user %}
-                                <div class="row justify-content-center">
+                                <div class="row justify-content-center mb-5">
                                     <div class="d-flex ">
                                         <img class="avatar mt-3 mb-3" src="{{ app.user.imagePicture }}"
                                              alt="avatar">
@@ -37,19 +37,18 @@
                                 </div>
                             {% endif %}
 
-                            <div class="row justify-content-center">
-                                <a href="{{ path('messaging_index', {'id': 1}) }}" class="btn btn-success btn-lg m-3" role="button"
-                                   aria-pressed="true">SELECT</a><br>
+                            <div class="row justify-content-center d-flex">
+                                <span class="mt-5"> You just sent a DUCKTALES </span>
+
+                                <div class="card mt-5" style="width: 18rem;">
+                                    <div class="card-body bg-primary">
+                                        <p class="card-text">{{ lastinsert.message }}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="row justify-content-center">
-                                <a href="{{ path('content_new') }}" class="btn btn-success btn-lg m-3" role="button"
-                                   aria-pressed="true">CREATE</a><br>
-                            </div>
-                            <div class="row justify-content-center m-3">
-                                <a href="{{ path('defaultmines') }}" class="btn btn-success btn-lg" role="button"
-                                   aria-pressed="true">MINES</a><br>
-                            </div>
+                            <a class="text-light" href="{{ path('default') }}">return</a>
                         </div>
+
                     </div>
                 </div>
             </div>

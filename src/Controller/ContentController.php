@@ -40,7 +40,7 @@ class ContentController extends AbstractController
             $entityManager->persist($content);
             $entityManager->flush();
 
-            return $this->redirectToRoute('default');
+            return $this->redirectToRoute('defaultlast');
         }
 
         return $this->render('content/new.html.twig', [
