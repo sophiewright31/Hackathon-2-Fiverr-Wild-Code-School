@@ -1,8 +1,15 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
-{{ form_start(form) }}
+<div class="row justify-content-center mt-5">
+    {{ form_start(form) }}
     {{ form_row(form.Message) }}
-            {{ form_rest(form) }}
-    <button class="btn">{{ button_label|default('Submit') }}</button>
-{{ form_end(form) }}
+    {{ form_rest(form) }}
+    <div class="row justify-content-center">
+        <a class="btn btn-success btn-lg m-3" role="button" href="{{ path('default') }}">Return</a>
+        <button class="btn btn-success btn-lg m-3" role="button"
+            aria-pressed="true">{{ button_label|default('Send') }}</button>
+    </div>
+    {{ form_end(form) }}
+</div>
+
 
 
