@@ -35,6 +35,8 @@ class MessagingController extends AbstractController
             $em->persist($messaging);
             $em->flush();
             $this->addFlash("success", "Your message has been sent !");
+
+            return $this->redirectToRoute('home');
         }
         return $this->render('messaging/index.html.twig', [
             'form' => $form->createView(),
