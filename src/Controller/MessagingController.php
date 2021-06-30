@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class MessagingController
  * @package App\Controller
- * @Route ("/messaging", name="messaging_")
+ * @Route ("/home/form", name="messaging_")
  */
 class MessagingController extends AbstractController
 {
@@ -39,7 +39,7 @@ class MessagingController extends AbstractController
 
             return $this->redirectToRoute('home');
         }
-        return $this->render('messaging/index.html.twig', [
+        return $this->render('home/form.html.twig', [
             'form' => $form->createView(),
         ]);
     }
