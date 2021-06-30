@@ -1,72 +1,21 @@
-{% extends 'base.html.twig' %}
+{% extends 'components/_card.html.twig' %}
 
-{% block title %}Seller Dashboard{% endblock %}
-
-{% block body %}
-
-    <div class="container-fluid">
-        <div class="dropright d-flex float-right">
-            <button class="btn btn-primary mb-5 " type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" style="border-radius:0 0 20px 20px;">
-                {% if app.user %}
-                    <div class="d-flex inline-block">
-                        <p>🔔</p>
-                        <div class="ml-3 custom-control custom-switch">
-                            <label class="custom-control-label" for="customSwitch1">Online</label>
-                            <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                        </div>
-                    </div>
-                {% else %}
-                    <div class="ml-3 custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
-                        <label class="custom-control-label" for="customSwitch2">Offline</label>
-                    </div>
-                {% endif %}
-            </button>
-            <div class="dropdown-menu border-0 bg-transparent mt-5" aria-labelledby="dropdownMenuButton">
-                <div class="row mt-5 ml-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="frame text-white bg-primary mb-3" style="height:500px; border-radius:45px;">
-                        <div class="card-body">
-                            <div class="ml-3 custom-control custom-switch">
-                                {% if app.user %}
-                                    <a href="{{ path("app_logout") }}">
-                                        <img src="{{ asset('build/images/off.png') }}">
-                                    </a>
-                                {% else %}
-                                    <a href="{{ path("app_login") }}">
-                                        <img src="{{ asset('build/images/on.png') }}">
-                                    </a>
-                                {% endif %}
-                                <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                            </div>
-                            {% if app.user %}
-                                <div class="row justify-content-center">
-                                    <div class="d-flex ">
-                                        <img class="avatar mt-3" src="{{ app.user.imagePicture }}" alt="avatar">
-                                    </div>
-                                </div>
-                            {% endif %}
-
-                            <div class="row justify-content-center">
-                                <a href="{{ path('messaging_index', {'id': 1}) }}" class="btn btn-success btn-lg m-3" role="button"
-                                   aria-pressed="true">SELECT</a><br>
-                            </div>
-                            <div class="row justify-content-center">
-                                <a href="{{ path('content_new') }}" class="btn btn-success btn-lg m-3" role="button"
-                                   aria-pressed="true">CREATE</a><br>
-                            </div>
-                            <div class="row justify-content-center m-3">
-                                <a href="{{ path('defaultmines') }}" class="btn btn-success btn-lg" role="button"
-                                   aria-pressed="true">MINES</a><br>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-
-
+{% block home %}
+	{% if app.user %}
+		<div class="row justify-content-center">
+			<div class="d-flex flex-column">
+				<img class="avatar my-3 mx-auto" src="{{ app.user.imagePicture }}" alt="avatar">
+				{% block username%}
+					<h3 class="text-light mx-auto">
+						Hi
+						{{ app.user.firstname }}
+						!
+					</h3>
+				{% endblock %}
+				<div class="row justify-content-center">
+					<a class="btn btn-success btn-lg m-3 mt-5" role="button" href="{{ path('mate') }}">Find a Mate</a>
+				</div>
+			</div>
+		</div>
+	{% endif %}
 {% endblock %}

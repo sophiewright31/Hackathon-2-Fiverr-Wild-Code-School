@@ -1,0 +1,13 @@
+{% extends 'components/_card.html.twig' %}
+
+{% block menu %}
+	<div class="row justify-content-center">
+		<a href="{{ path('content_index') }}" class="btn btn-success btn-lg m-3" role="button" aria-pressed="true">SELECT</a><br>
+	</div>
+	<div class="row justify-content-center">
+		<a href="{{ path('content_new') }}" class="btn btn-success btn-lg m-3" role="button" aria-pressed="true">CREATE</a><br>
+	</div>
+	<div class="row justify-content-center m-3">
+		<a href="{{ path('content_index') }}" class="btn btn-success btn-lg" role="button" aria-pressed="true">MINES</a><br>
+	</div>
+{% endblock %}

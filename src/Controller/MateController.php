@@ -23,8 +23,6 @@ class MateController extends AbstractController
         $randomNumber = array_rand($photoAreas);
         $randomImage = $photoAreas[$randomNumber];
 
-        echo "<img src=\"$randomImage\" width=\"75\">";
-
         return $this->render('home/mate.html.twig', [
             'users' => $userRepository->findAll(),
         ]);

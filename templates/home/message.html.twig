@@ -1,0 +1,15 @@
+{% extends 'components/_card.html.twig' %}
+
+{% block message %}
+	<div class="row justify-content-center d-flex">
+		<span class="mt-5">
+			You just sent a DUCKTALES
+		</span>
+		<div class="card mt-5" style="width: 18rem;">
+			<div class="card-body bg-primary">
+				<p class="card-text">{{ lastinsert.message }}</p>
+			</div>
+		</div>
+	</div>
+	<a class="text-light" href="{{ path('default') }}">return</a>
+{% endblock %}
