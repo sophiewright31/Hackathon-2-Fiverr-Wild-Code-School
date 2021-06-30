@@ -27,10 +27,10 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/default", name="app_logout")
+     * @Route("/logout", name="app_logout")
      */
     public function logout()
     {
-        return $this->render('home.html.twig');
+        return $this->render('home/index.html.twig');
     }
 }
