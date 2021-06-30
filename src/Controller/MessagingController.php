@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Messaging;
 use App\Entity\User;
 use App\Form\MessagingType;
+use App\Repository\MessagingRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,4 +44,5 @@ class MessagingController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
 }

@@ -33,4 +33,5 @@ class MessageController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
 }

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Content;
 use App\Form\ContentType;
 use App\Repository\ContentRepository;
+use App\Repository\MessagingRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\BrowserKit\Request;
@@ -43,6 +44,23 @@ class DefaultController extends AbstractController
         return $this->render('home/indexmines.html.twig', [
             'controller_name' => 'DefaultController',
             'myInserts' => $myInserts,
+        ]);
+    }
+
+    /**
+     * @Route("/defaultselected", name="defaultselected")
+     */
+    public function indexSelected(MessagingRepository $messagingRepository): Response
+    {
+        $myMessageSelected = $messagingRepository->findOneBy(['sender' => 5], ['id' => 'desc']);
+        $selectedMessage = $myMessageSelected->getContent();
+
+        $messageReceived = $messagingRepository->findOneBy(['receiver' => 6], ['id' => 'asc']);
+        $selectedMessageReceived = $messageReceived->getContent();
+
+        return $this->render('home/indexselected.html.twig', [
+            'message' => $selectedMessage,
+            'response' => $selectedMessageReceived,
         ]);
     }
 

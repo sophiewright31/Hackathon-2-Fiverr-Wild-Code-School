@@ -5,9 +5,10 @@
 {% block body %}
     <div class="container-fluid">
         <div class="dropright d-flex float-right">
-            {% include 'components/_switch_button.html.twig' %}
+            {# {% include 'components/_switch_button.html.twig' %} #}
             <div class="dropdown-menu border-0 ml-5" aria-labelledby="dropdownMenuButton">
-                <div class="row mt-5 ml-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="row mt-5 ml-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
                     <div class="frame text-white bg-primary mb-3" style="height:500px; border-radius:45px;">
                         <div class="card-body">
                             {% if app.user %}

@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="dropright d-flex float-right">
+            <button class="btn btn-primary mb-5 " type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" style="border-radius:0 0 20px 20px;">
+                {% if app.user %}
+                    <div class="d-flex inline-block">
+                        <p>🔔</p>
+                        <div class="ml-3 custom-control custom-switch">
+                            <label class="custom-control-label" for="customSwitch1">Online</label>
+                            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="ml-3 custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
+                        <label class="custom-control-label" for="customSwitch2">Offline</label>
+                    </div>
+                {% endif %}
+            </button>
+            <div class="dropdown-menu border-0 ml-5" aria-labelledby="dropdownMenuButton">
+                <div class="row mt-5 ml-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="frame text-white bg-primary mb-3" style="height:500px; border-radius:45px;">
+                        <div class="card-body">
+                            {% if app.user %}
+                                <div class="row justify-content-center mb-5">
+                                    <div class="d-flex ">
+                                        <img class="avatar mt-3 mb-3" src="{{ app.user.imagePicture }}"
+                                             alt="avatar">
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            <div class="row justify-content-center d-flex">
+                                <div class="card mt-5" style="width: 18rem;">
+                                    <div class="card-body bg-primary">
+
+                                        <p class="card-text">{{ message.owner.sender.firstname }}</p>
+                                        Vous venez d'envoyer :
+                                        <p class="card-text"></p>
+                                        {% for messagelast in message.owner.content %}
+                                           <ul>
+                                               <li>
+                                            {{ messagelast }}
+                                               </li>
+                                           </ul>
+                                        {% endfor %}
+                                        à
+                                        <p class="card-text">{{ response.owner.receiver.firstname }}</p>
+                                        Il vous a répondu
+                                        <p class="card-text">
+                                            {% for responselast in response.owner.content %}
+                                        <ul>
+                                            <li>
+                                                {{ responselast }}
+                                            </li>
+                                        </ul>
+                                        {% endfor %}
+                                        </p>
+                                    </div>
+                                </div>
+                                    <a class="btn btn-success btn-lg" role="button" href="{{ path('default') }}">Return</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
