@@ -17,11 +17,11 @@
 							<div class="ml-3 custom-control custom-switch">
 								{% if app.user %}
 									<a href="{{ path("app_logout") }}">
-										<img src="{{ asset('build/images/off.png') }}">
+										<img src="{{ asset('build/on.png') }}">
 									</a>
 								{% else %}
 									<a href="{{ path("app_login") }}">
-									<img src="{{ asset('build/images/on.png') }}">
+									<img src="{{ asset('build/off.png') }}">
 									</a>
 								{% endif %}
 								<input type="checkbox" class="custom-control-input" id="customSwitch1">
