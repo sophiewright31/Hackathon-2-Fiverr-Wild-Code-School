@@ -8,10 +8,16 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
+
 <div class="example-wrapper">
     {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {{ form_row(form) }}
     <button>Send</button>
     {{ form_end(form) }}
 </div>
+    {% for message in app.flashes('success') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
 {% endblock %}
