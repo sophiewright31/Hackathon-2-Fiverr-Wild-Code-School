@@ -29,12 +29,13 @@
                                 </div>
                                 {{ form_end(form) }}
                             </div>
+                            {% for message in app.flashes('success') %}
+                                <div class="flash-notice">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
             </div>
-
-
-        </div>
-    </div>
 {% endblock %}

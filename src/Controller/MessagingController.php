@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Messaging;
-use App\Entity\User;
 use App\Form\MessagingType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,7 +22,7 @@ class MessagingController extends AbstractController
     /**
      * @Route("/{id}", name="index")
      */
-    public function index(Request $request, EntityManagerInterface $em, UserRepository $userRepository, User $user): Response
+    public function index(Request $request, EntityManagerInterface $em, UserRepository $userRepository): Response
     {
         $messaging = new Messaging();
         $userRand = $userRepository->findBy(['id' => rand(0,10)]);
