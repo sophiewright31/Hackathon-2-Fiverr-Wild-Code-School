@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Seller Dashboard
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid">
+		<button class="btn btn-primary mb-5 d-flex float-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="border-radius:0 0 20px 20px;">
+			<img src="{{ asset('build/duck.png') }}">
+		</button>
+		{% if app.user %}
+			<div class="collapse.show show.bs.toast" id="collapseExample">
+			{% else %}
+				<div class="collapse" id="collapseExample">
+				{% endif %}
+				<div class="d-flex float-right">
+					<div class="shadow position-fixed card-body text-white bg-primary mbt-5 mr-5n" style="top:150px; right:16px; height:500px; width:380px; border-radius:60px;">
+						<div class="mb-5">
+							<button class="btn btn-primary ml-3 d-flex float-left" type="button">
+								<a >
+									🔔
+								</p>
+							</button>
+							<div class="mr-3 my-3 custom-control custom-switch">
+								{% if app.user %}
+									<div class="d-flex float-right">
+										<p class="mr-3">
+											logout
+										</p>
+										<a href="{{ path("app_logout") }}">
+											<img src="{{ asset('build/on.png') }}">
+										</a>
+									</div>
+								{% else %}
+									<div class="d-flex float-right">
+										<p class="mr-3">
+											login
+										</p>
+										<a href="{{ path("app_login") }}">
+											<img src="{{ asset('build/off.png') }}">
+										</a>
+									</div>
+								{% endif %}
+								<input type="checkbox" class="custom-control-input" id="customSwitch1">
+							</div>
+						</div>
+						{% if app.user %}
+							<div class="row justify-content-center">
+								<div class="d-flex flex-column">
+									<img class="avatar my-3 mx-auto" src="{{ app.user.imagePicture }}" alt="avatar">
+									{% block username%}
+										<h3 class="text-light mx-auto">
+											Hi
+											{{ app.user.firstname }}
+											!
+										</h3>
+									{% endblock %}
+								</div>
+							</div>
+						{% endif %}
+						{% block login %}{% endblock %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
