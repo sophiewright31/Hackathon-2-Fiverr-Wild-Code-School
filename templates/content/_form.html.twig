@@ -4,9 +4,8 @@
     {{ form_row(form.Message) }}
     {{ form_rest(form) }}
     <div class="row justify-content-center">
-        <a class="btn btn-success btn-lg m-3" role="button" href="{{ path('default') }}">Return</a>
-        <button class="btn btn-success btn-lg m-3" role="button"
-            aria-pressed="true">{{ button_label|default('Send') }}</button>
+        <a class="btn btn-success btn-lg m-3" role="button" href="{{ path('mate') }}">Return</a>
+        <a class="btn btn-success btn-lg m-3" role="button" href="{{ path('conv') }}">Send</a>
     </div>
     {{ form_end(form) }}
 </div>
