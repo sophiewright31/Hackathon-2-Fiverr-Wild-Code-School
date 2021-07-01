@@ -1,0 +1,24 @@
+
+.backgreen {
+   background: $primary;
+}
+
+.avatar {
+   border-radius: 100%;
+   height: 115px;
+   width: 115px;
+}
+
+.frame {
+    height: 750px;
+    width: 400px;
+    border-radius: 100%;
+}
+
+.fixedCard {
+    margin-top: 10px;
+}
+
+*body {
+    background-image: url("/assets/images/fond.png");
+}

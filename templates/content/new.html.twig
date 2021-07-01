@@ -1,0 +1,17 @@
+{% extends 'components/_card.html.twig' %}
+
+{% block title %}New Content{% endblock %}
+
+{% block new %}
+
+                            {% if app.user %}
+                                <div class="row justify-content-center">
+                                    <div class="d-flex ">
+                                        <img class="avatar mt-3" src="{{ app.user.imagePicture }}"
+                                             alt="avatar">
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {{ include('content/_form.html.twig') }}
+
+{% endblock %}

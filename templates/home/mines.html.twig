@@ -1,0 +1,14 @@
+{% extends 'components/_card.html.twig' %}
+
+
+{% block mines %}
+                            <div class="row justify-content-center d-flex">
+                                    <ul class="list-group overflow-auto" style="max-height: 160px;" >
+                                        {% for myInsert in myInserts %}
+                                            <li class="list-group-item bg-primary border-light">{{ myInsert.message }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    <a class="btn btn-success btn-lg" role="button" href="{{ path('mate') }}">Return</a>
+                            </div>
+
+{% endblock %}

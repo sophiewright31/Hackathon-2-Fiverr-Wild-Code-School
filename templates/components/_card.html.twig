@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Seller Dashboard
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid">
+		<button class="btn btn-primary mb-5 d-flex float-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="border-radius:0 0 20px 20px;">
+			<img src="{{ asset('build/duck.png') }}">
+		</button>
+		{% if app.user %}
+			<div class="collapse.show show.bs.toast" id="collapseExample">
+			{% else %}
+				<div class="collapse" id="collapseExample">
+				{% endif %}
+				<div class="d-flex float-right">
+					<div class="shadow position-fixed card-body text-white bg-primary mbt-5 mr-5n" style="top:150px; right:16px; height:500px; width:380px; border-radius:60px;">
+						<div class="mb-5">
+							<a class="ml-3 d-flex float-left" href="#">
+								🔔
+							</a>
+							<div class="mr-3 my-3 custom-control custom-switch">
+								{% if app.user %}
+									<div class="d-flex float-right">
+										<p class="mr-3">
+											logout
+										</p>
+										<a href="{{ path("app_logout") }}">
+											<img src="{{ asset('build/on.png') }}">
+										</a>
+									</div>
+								{% else %}
+									<div class="d-flex float-right">
+										<p class="mr-3">
+											login
+										</p>
+										<a href="{{ path("app_login") }}">
+											<img src="{{ asset('build/off.png') }}">
+										</a>
+									</div>
+								{% endif %}
+								<input type="checkbox" class="custom-control-input" id="customSwitch1">
+							</div>
+						</div>
+						{% block menu %}{% endblock %}
+						{% block mines %}{% endblock %}
+						{% block message %}{% endblock %}
+						{% block form %}{% endblock %}
+						{% block home %}{% endblock %}
+						{% block login %}{% endblock %}
+						{% block mate %}{% endblock %}
+						{% block new %}{% endblock %}
+						{% block fake %}{% endblock %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

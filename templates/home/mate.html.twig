@@ -1,0 +1,18 @@
+{% extends 'components/_card.html.twig' %}
+
+{% block mate %}
+    {% if app.user %}
+        <div class="row justify-content-center mb-5">
+            <div class="d-flex ">
+                <img class="avatar mt-3" src="https://avatars.githubusercontent.com/u/59830027?v=4" alt="avatar">
+            </div>
+        </div>
+    {% endif %}
+    <h3 class="text-light text-center mx-auto mt-5">
+        Your new workmate for today
+    </h3>
+    <div class="row justify-content-center">
+        <a href="{{ path('menu') }}" class="btn btn-success btn-lg m-3 mt-5" role="button"
+           aria-pressed="true">Let's talk together !</a><br>
+    </div>
+{% endblock %}

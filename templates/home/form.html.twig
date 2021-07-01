@@ -1,0 +1,16 @@
+{% extends 'components/_card.html.twig' %}
+
+{% block form %}
+
+<div class="example-wrapper overflow-auto">
+	{{ form_start(form) }}
+	{{ form_row(form.content) }}
+	{{ form_rest(form) }}
+	<div class="row justify-content-center">
+		<a class="btn btn-success btn-lg m-3" role="button" href="{{ path('mate') }}">Return</a>
+		<button class="btn btn-success btn-lg m-3" role="button" aria-pressed="true">{{ button_label|default('Send') }}</button>
+	</div>
+	{{ form_end(form) }}
+</div>
+
+{% endblock %}

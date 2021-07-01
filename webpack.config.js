@@ -12,8 +12,19 @@ Encore
     // public path used by the web server to access the output path
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
-    //.setManifestKeyPrefix('build/')
+    // .setManifestKeyPrefix('build/')
+    .copyFiles({
+        from: './assets/images',
 
+        // optional target path, relative to the output dir
+        // to: 'images/[path][name].[ext]',
+
+        // if versioning is enabled, add the file hash too
+        // to: 'images/[path][name].[hash:8].[ext]',
+
+        // only copy files matching this pattern
+        // pattern: /\.(png|jpg|jpeg)$/
+    })
     /*
      * ENTRY CONFIG
      *
@@ -40,7 +51,7 @@ Encore
      * https://symfony.com/doc/current/frontend.html#adding-more-features
      */
     .cleanupOutputBeforeBuild()
-    .enableBuildNotifications()
+    // .enableBuildNotifications()
     .enableSourceMaps(!Encore.isProduction())
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
@@ -56,7 +67,7 @@ Encore
     })
 
     // enables Sass/SCSS support
-    //.enableSassLoader()
+    .enableSassLoader()
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()

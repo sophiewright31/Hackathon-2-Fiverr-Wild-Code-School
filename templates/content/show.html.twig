@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Content{% endblock %}
+
+{% block body %}
+    <h1>Content</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ content.id }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ content.Message }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('content_index') }}">back to list</a>
+
+    <a href="{{ path('content_edit', {'id': content.id}) }}">edit</a>
+
+    {{ include('content/_delete_form.html.twig') }}
+{% endblock %}
