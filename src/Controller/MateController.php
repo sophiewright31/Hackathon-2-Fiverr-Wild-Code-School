@@ -27,4 +27,12 @@ class MateController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
+    /**
+     * @Route("/conv", name="conv")
+     */
+    public function conv(): Response
+    {
+        return $this->render('home/fake_conv.html.twig');
+
+    }
 }
